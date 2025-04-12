@@ -101,18 +101,25 @@ public class InputStringSetting : BaseSetting, @unchecked Sendable {
     }
 }
 
+/*
+ MARK: SelectionSetting
+ Used to select from a list of values
+ */
 public class SelectionSetting : BaseSetting, @unchecked Sendable {
     public let values: [String : Any]
     public var selectedValue: Any? = nil
+    public var action: () -> Void
     
     public init(key: String,
                 title: String,
                 details: String? = nil,
                 values: [String : Any],
                 selectedValue: Any? = nil,
+                action: @escaping () -> Void,
                 delegate: (any SettingDelegate)? = nil) {
         self.values = values
         self.selectedValue = selectedValue
+        self.action = action
         super.init(key: key,
                    title: title,
                    details: details,

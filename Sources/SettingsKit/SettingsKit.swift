@@ -55,12 +55,14 @@ public struct SettingsKit {
                           details: String? = nil,
                           values: [String : Any],
                           selectedValue: Any? = nil,
+                          action: @escaping () -> Void,
                           delegate: (any SettingDelegate)? = nil) -> SelectionSetting {
         .init(key: key,
               title: title,
               details: details,
               values: values,
               selectedValue: selectedValue,
+              action: action,
               delegate: delegate)
     }
     
